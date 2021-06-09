@@ -47,4 +47,11 @@ file_list = folder_details(ctx, folder_in_sharepoint)
 #Printing list of files from sharepoint folder
 print(filelist_shrpt)
 
+#Reading File from SharePoint Folder
+sharepoint_file = '/teams/SustainabilityDataAccelerator/Shared%20Documents/General/Agro/2018_indirects_sustainable_sourcing_template.xlsx'
+file_response = File.open_binary(ctx, sharepoint_file)
+
+#Saving file to local
+with open("sharepointfile.csv", 'wb') as output_file:  
+    output_file.write(file_response.content)
 
